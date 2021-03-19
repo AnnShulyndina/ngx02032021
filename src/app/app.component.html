@@ -1,16 +1,10 @@
 <course-header
-  [title]="title" (toggle)="toggleSideNav($event)"
+  [title]="title"
+
+  (toggle)="toggleSideNav($event)"
 ></course-header>
 
 
-<input type="text"
-       (input)="onSearch($event)">
-{{searchTerm}}
+<course-sidenav></course-sidenav>
 
-<img [attr.src]="logo"
-     [alt]="title"
-     [style.width.%]="logoWidth"
-     (click)="clickOnImage(logo, $event)">
-
-
-<div [innerHTML]="span"></div>
+<input type="text" #inputEl (input)="onSearch(inputEl.value)">

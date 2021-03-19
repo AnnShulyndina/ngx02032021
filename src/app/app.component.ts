@@ -10,6 +10,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 export class AppComponent {
   public title = 'ngx020321';
 
+
   public toggleSideNav(event: boolean): void {
     console.log(event);
   }
@@ -17,13 +18,12 @@ export class AppComponent {
 
   public searchTerm = '';
 
-  public onSearch(event: Event): void {
-    const value: string = (event.target as HTMLInputElement).value;
-    this.searchTerm = value;
+  public onSearch(value: string): void {
+   console.log(value);
   }
 
   public logo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png';
-  public logoWidth = 50;
+  public logoWidth = 10;
 
   public clickOnImage(_: string, event: MouseEvent): void {
     console.log(event);
@@ -37,6 +37,7 @@ export class AppComponent {
   };
 
   public span = this.domSanitizer.bypassSecurityTrustHtml('<span style="color: red">Tooltip</span>');
+
   constructor(
     private domSanitizer: DomSanitizer
   ) {
@@ -45,6 +46,7 @@ export class AppComponent {
 
   private salary = 3000;
   private bonuses = 1.2;
+
   public getSalary(): number {
     return Math.round(this.salary * this.bonuses);
   }
